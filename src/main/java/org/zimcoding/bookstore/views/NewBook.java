@@ -21,6 +21,7 @@ import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.RouterLink;
 import jakarta.annotation.security.RolesAllowed;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -43,7 +44,7 @@ public class NewBook extends VerticalLayout {
         binder.bindInstanceFields(this);
         binder.setTopic("new-book", Book::new);
         CollaborationMessageList massageList = new CollaborationMessageList(username,"New-Book");
-        add(new H1("New Book"),
+        add(new H1("New Book"),Routes(),
                 new HorizontalLayout(
                         new VerticalLayout(new FormLayout(title,published,rating),
                                 new Button("Save Book", buttonClickEvent -> {
@@ -57,5 +58,13 @@ public class NewBook extends VerticalLayout {
                 ));
 
 
+    }
+    public Component Routes(){
+
+        return new HorizontalLayout(
+                new RouterLink("Home Page", HomeView.class),
+                new RouterLink("Administration ", AdminView.class),
+                new RouterLink("Login", LoginView.class)
+        );
     }
 }

@@ -5,7 +5,9 @@
 
 package org.zimcoding.bookstore.views;
 
+import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.html.H1;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLink;
@@ -18,7 +20,7 @@ import org.zimcoding.bookstore.Service.BookService;
 @RolesAllowed("ADMIN")
 public class AdminView extends VerticalLayout {
     public AdminView(BookService service) {
-        add(new H1("Admin View"));
+        add(new H1("Admin View"), Routes());
         var grid = new GridCrud<>(Book.class, service);
         grid.getGrid().setColumns("title","published","rating");
         grid.getCrudFormFactory().setVisibleProperties("title","published","rating");
@@ -27,5 +29,12 @@ public class AdminView extends VerticalLayout {
         add(grid
         );
     }
+    public Component Routes(){
 
+        return new HorizontalLayout(
+                new RouterLink("Home Page", HomeView.class),
+                new RouterLink("Add New Book ", NewBook.class),
+                new RouterLink("Login", LoginView.class)
+        );
+    }
 }

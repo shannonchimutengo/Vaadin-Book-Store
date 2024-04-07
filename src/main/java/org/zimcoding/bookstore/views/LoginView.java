@@ -14,5 +14,7 @@ public class LoginView extends Composite<LoginOverlay> {
     public LoginView() {
         getContent().setOpened(true);
         getContent().setAction("login");
+        getContent().setTitle("Book Store");
+        getContent().setDescription("Login Details -> root  - password = pass, admin - password =pass");
     }
 }
