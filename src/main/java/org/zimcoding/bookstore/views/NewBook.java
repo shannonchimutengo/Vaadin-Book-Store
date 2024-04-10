@@ -62,7 +62,8 @@ public class NewBook extends VerticalLayout {
         return new HorizontalLayout(
                 new RouterLink("Home Page", HomeView.class),
                 new RouterLink("Administration ", AdminView.class),
-                new RouterLink("Login", LoginView.class)
+                new RouterLink("Login", LoginView.class),
+                new RouterLink("Reports", ReportsView.class)
         );
     }
 }

@@ -14,6 +14,7 @@ import org.zimcoding.bookstore.Repository.BookRepository;
 
 
 import java.util.Collection;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -22,7 +23,7 @@ public class BookService implements CrudListener<Book> {
     private final BookRepository bookRepository;
 
     @Override
-    public Collection<Book> findAll() {
+    public List<Book> findAll() {
         return bookRepository.findAll();
     }
 

@@ -24,7 +24,8 @@ public class HomeView extends VerticalLayout {
         return new HorizontalLayout(
                 new RouterLink("Admin View", AdminView.class),
                 new RouterLink("Add New Book ", NewBook.class),
-                new RouterLink("Login", LoginView.class)
+                new RouterLink("Login", LoginView.class),
+                new RouterLink("Reports", ReportsView.class)
         );
     }
 }
